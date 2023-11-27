@@ -5,6 +5,7 @@ pub trait MatcherTrait {
     fn execute(&self, line: &str) -> bool;
 }
 
+#[derive(Clone)]
 pub struct FixedStringsMatcher {
     pattern: String,
 }
@@ -21,6 +22,7 @@ impl MatcherTrait for FixedStringsMatcher {
     }
 }
 
+#[derive(Clone)]
 pub struct ExtendedRegexMatcher {
     pattern: Regex,
 }
@@ -39,6 +41,7 @@ impl MatcherTrait for ExtendedRegexMatcher {
     }
 }
 
+#[derive(Clone)]
 pub enum Matcher {
     ExtendedRegexp(ExtendedRegexMatcher),
     FixedStrings(FixedStringsMatcher),
